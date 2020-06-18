@@ -15,6 +15,8 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
 " neobundle自体をneobundleで管理
 NeoBundleFetch 'Shougo/neobundle.vim'
+" カラースキームmolokai
+NeoBundle 'tomasr/molokai'
 " 今後このあたりに追加のプラグインをどんどん書いて行きます！！"
 NeoBundle "scrooloose/syntastic", {
       \ "build": {
@@ -33,6 +35,9 @@ NeoBundleCheck
 "-------------------------
 " End Neobundle Settings.
 "-------------------------V
+
+" colorscheme
+colorscheme molokai
 
 set encoding=utf-8
 scriptencoding utf-8
