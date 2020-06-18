@@ -6,6 +6,34 @@
 ".o.    `888'     888   888   888   888   888     888   .o8
 "Y8P     `8'     o888o o888o o888o o888o d888b    `Y8bod8P'
 
+"---------------------------
+"" Start Neobundle Settings.
+"---------------------------
+"" bundleで管理するディレクトリを指定
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+" neobundle自体をneobundleで管理
+NeoBundleFetch 'Shougo/neobundle.vim'
+" 今後このあたりに追加のプラグインをどんどん書いて行きます！！"
+NeoBundle "scrooloose/syntastic", {
+      \ "build": {
+      \   "mac": ["pip install flake8", "npm -g install coffeelint"],
+      \   "unix": ["pip install flake8", "npm -g install coffeelint"],
+      \ }}
+" NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'ervandew/supertab'
+call neobundle#end()
+" Required:
+filetype plugin indent on
+"
+" 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
+" 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
+NeoBundleCheck
+"-------------------------
+" End Neobundle Settings.
+"-------------------------V
+
 set encoding=utf-8
 scriptencoding utf-8
 
@@ -96,7 +124,7 @@ set runtimepath+=/Users/katokota/.vim/./dein/repos/github.com/Shougo/dein.vim
 " Required:
 if dein#load_state('~/.cache/dein')
     call dein#begin('~/.cache/dein')
-    "Let dein manage dein
+   "Let dein manage dein
    " Required:
     call dein#add('~/.cache/dein')
     let g:rc_dir = '~/dotfiles/vim/deinrc'
