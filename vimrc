@@ -36,6 +36,9 @@ NeoBundleCheck
 " End Neobundle Settings.
 "-------------------------V
 
+" Ctrl-@でペーストモード
+set pastetoggle=<C-@>
+
 " colorscheme
 colorscheme molokai
 
