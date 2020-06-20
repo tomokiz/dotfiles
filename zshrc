@@ -19,7 +19,45 @@ colors
 
 #PROMPTが呼ばれる前に実行される
 precmd () {}
-PROMPT="%B%(!.%{${fg[red]}%}.%{${fg[green]}%}){%n}%{${fg[blue]}%}%~%{${fg[yellow]}%} >%{${reset_color}%}%b"
+# git ブランチ名を色付きで表示させるメソッド
+function prompt-git {
+  local branch_name st branch_status
+
+  if [ ! -e  ".git" ]; then
+    # git 管理されていないディレクトリは何も返さない
+    return
+  fi
+  branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
+  st=`git status 2> /dev/null`
+  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+    # 全て commit されてクリーンな状態
+    branch_status="%{${fg[green]}%}"
+  elif [[ -n `echo "$st" | grep "^Untracked files"` ]]; then
+    # git 管理されていないファイルがある状態
+    branch_status="%{${fg[red]}%}"
+  elif [[ -n `echo "$st" | grep "^Changes not staged for commit"` ]]; then
+    # git add されていないファイルがある状態
+    branch_status="%{${fg[red]}%}"
+  elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
+    # git commit されていないファイルがある状態
+    branch_status="%{${fg[yellow]}%}"
+  elif [[ -n `echo "$st" | grep "^rebase in progress"` ]]; then
+    # コンフリクトが起こった状態
+    echo "%{${fg[red]}%}!(no branch)"
+    return
+  else
+    # 上記以外の状態の場合
+    branch_status="%{${fg[blue]}%}"
+  fi
+  # ブランチ名を色付きで表示する
+  echo "${branch_status}($branch_name)"
+}
+
+# プロンプトが表示されるたびにプロンプト文字列を評価、置換する
+setopt prompt_subst
+
+# プロンプトにメソッドの結果を表示させる
+PROMPT='%B%(!.%{${fg[red]}%}.%{${fg[green]}%})_%n_`prompt-git`%{${fg[blue]}%}%~%{${fg[yellow]}%} > %{${fg[white]}%}%b'
 
 
 #=============================
