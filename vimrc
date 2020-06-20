@@ -17,7 +17,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 " カラースキームmolokai
 NeoBundle 'tomasr/molokai'
-" 今後このあたりに追加のプラグインをどんどん書いて行きます！！"
+" ステータスライン強化
+NeoBundle 'itchyny/lightline.vim'
+" syntaxエラー表示"
 NeoBundle "scrooloose/syntastic", {
       \ "build": {
       \   "mac": ["pip install flake8", "npm -g install coffeelint"],
@@ -36,6 +38,15 @@ NeoBundleCheck
 " End Neobundle Settings.
 "-------------------------V
 
+" ステータスライン設定
+let s:winfont = 'Ricty_Diminished_for_Powerline:h12'
+let g:lightline = {
+    \  'enable': { 'tabline': 0 },
+    \  'colorscheme': 'landscape',
+    \ 'separator': { 'left': " ◣", 'right':"◢" },
+    \ 'subseparator': { 'left': "/", 'right': "/" }
+    \}
+
 " Ctrl-@でペーストモード
 set pastetoggle=<C-@>
 
@@ -52,6 +63,7 @@ set cursorlineopt=number
 
 " ステータスライン
 set laststatus=2
+set noshowmode
 
 "文字コード
 set fileencoding=utf-8
