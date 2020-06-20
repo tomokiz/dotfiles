@@ -19,7 +19,7 @@ colors
 
 #PROMPTが呼ばれる前に実行される
 precmd () {}
-PROMPT="%B%{${fg[green]}%}%n@%m:%{${fg[blue]}%}%~%{${fg[white]}%}# %{${reset_color}%}%b"
+PROMPT="%B%(!.%{${fg[red]}%}.%{${fg[green]}%}){%n}%{${fg[blue]}%}%~%{${fg[yellow]}%} >%{${reset_color}%}%b"
 
 
 #=============================
