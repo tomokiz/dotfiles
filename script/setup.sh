@@ -10,6 +10,4 @@ vimrc .vimrc
 zshrc .zshrc
 END
 
-pip3 install --user pynvim
-
 echo 'setup successful!'
