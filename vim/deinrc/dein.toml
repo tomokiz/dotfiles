@@ -68,3 +68,12 @@ repo = 'scrooloose/syntastic'
 [[plugins]]
 repo = 'nvie/vim-flake8'
 on_ft = 'python'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'vim-scripts/twilight'
+
+[[plugins]]
+repo = 'ervandew/supertab'

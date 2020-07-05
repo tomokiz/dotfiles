@@ -6,40 +6,6 @@
 ".o.    `888'     888   888   888   888   888     888   .o8
 "Y8P     `8'     o888o o888o o888o o888o d888b    `Y8bod8P'
 
-"---------------------------
-"" Start Neobundle Settings.
-"---------------------------
-"" bundleで管理するディレクトリを指定
-set runtimepath+=~/.vim/bundle/neobundle.vim/
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-" neobundle自体をneobundleで管理
-NeoBundleFetch 'Shougo/neobundle.vim'
-" カラースキームmolokai
-NeoBundle 'tomasr/molokai'
-" カラースキームTwiloght
-NeoBundle 'vim-scripts/twilight'
-" ステータスライン強化
-NeoBundle 'itchyny/lightline.vim'
-" syntaxエラー表示"
-NeoBundle "scrooloose/syntastic", {
-      \ "build": {
-      \   "mac": ["pip install flake8", "npm -g install coffeelint"],
-      \   "unix": ["pip install flake8", "npm -g install coffeelint"],
-      \ }}
-" NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'ervandew/supertab'
-call neobundle#end()
-" Required:
-filetype plugin indent on
-"
-" 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
-" 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
-NeoBundleCheck
-"-------------------------
-" End Neobundle Settings.
-"-------------------------V
-
 " ステータスライン設定
 let s:winfont = 'Ricty_Diminished_for_Powerline:h12'
 let g:lightline = {
@@ -51,9 +17,6 @@ let g:lightline = {
 
 " Ctrl-@でペーストモード
 set pastetoggle=<C-@>
-
-" colorscheme
-colorscheme molokai
 
 set encoding=utf-8
 scriptencoding utf-8
@@ -176,3 +139,6 @@ endfunction
 command! DeinCheckInstall call dein#check_install()
 command! DeinCheckClean call dein#check_clean()
 command! DeinUpdate call dein#update()
+
+" colorscheme
+color molokai
