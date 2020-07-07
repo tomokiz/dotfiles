@@ -98,3 +98,5 @@ setopt extended_history
 # if [ $SHLVL = 1 ]; then
 # tmux
 # fi
+
+unsetopt promptcr
