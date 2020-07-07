@@ -88,6 +88,7 @@ alias l=ls
 alias la='ls -a'
 alias ll='ls -al'
 alias cmx='chmod +x'
+alias help='echo help | bash'
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
