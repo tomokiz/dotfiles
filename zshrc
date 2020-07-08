@@ -83,6 +83,9 @@ autoload -U compinit && compinit # 補完機能の強化
 # for w3m
 export WWW_HOME="http://google.com/"
 
+#path
+export PATH=$PATH:$HOME/bin
+
 #aliases
 alias l=ls
 alias la='ls -a'
