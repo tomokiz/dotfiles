@@ -104,3 +104,14 @@ setopt extended_history
 # fi
 
 unsetopt promptcr
+
+function command_not_found_handler() {
+    if test -e $1;    then
+        if [ "$(file --mime-encoding -L $1 | awk '{print $2}')" = 'binary' ];
+        then
+            echo "zsh: command not found: $1"
+        else
+            cat "$1"
+        fi
+    fi
+}
