@@ -113,5 +113,7 @@ function command_not_found_handler() {
         else
             cat "$1"
         fi
+    else
+        echo "zsh: command not found: $1"
     fi
 }
