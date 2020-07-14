@@ -78,3 +78,6 @@ repo = 'vim-scripts/twilight'
 [[plugins]]
 repo = 'ervandew/supertab'
 
+[[plugins]]
+repo = 'vim/killersheep'
+
