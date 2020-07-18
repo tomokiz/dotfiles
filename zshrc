@@ -117,5 +117,8 @@ function command_not_found_handler() {
 }
 
 # PATH
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$PATH:$HOME/bin:$HOME/.rbenv/bin"
+
+# setting for ruby
+eval "$(rbenv init -)"
 
