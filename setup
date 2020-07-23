@@ -8,7 +8,7 @@ filelist=`cat ~/dotfiles/file.list | sed '/^#/d'`
 numfiles=`echo "$filelist" | wc -l`
 for i in `seq $numfiles`;  do
   symbolic="~/"`echo "$filelist" | sed -n "$i"p | awk '{print $2}'`
-  if [ ! -e $symbolic ];  then
+  if [ -e "$symbolic" ];  then
     echo -e "\e[1;31m[Error] File "$symbolic" has already exists."
     exit
   fi
