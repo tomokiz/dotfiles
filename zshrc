@@ -106,15 +106,16 @@ setopt extended_history
 unsetopt promptcr
 
 function command_not_found_handler() {
-  if test -e $1;    then
-    if [ "$(file --mime-encoding -L $1 | awk '{print $2}')" = 'binary' ];
-    then
-      echo "zsh: command not found: $1"
+  if [ $1 != 'zsh:' ];  then
+    if test -e $1;  then
+        if [ "$(file --mime-encoding -L $1 | awk '{print $2}')" = 'binary' ];  then
+        echo "zsh: command not found: $1"
+        else
+        cat "$1"
+        fi
     else
-      cat "$1"
+        echo "zsh: command not found: $1"
     fi
-  else
-    echo "zsh: command not found: $1"
   fi
 }
 
