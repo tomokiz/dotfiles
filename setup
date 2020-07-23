@@ -9,13 +9,12 @@ numfiles=`echo "$filelist" | wc -l`
 for i in `seq $numfiles`;  do
   symbolic="~/"`echo "$filelist" | sed -n "$i"p | awk '{print $2}'`
   if [ -e "$symbolic" ];  then
-    echo -e "\e[1;31m[Error] File "$symbolic" has already exists."
-    exit
+    echo -e "\e[1;31m[Error] File "$symbolic" has already exist"
+  else
+    echo -n $symbolic
+    deref="~/dotfiles/"`echo "$filelist" | sed -n "$i"p | awk '{print $1}'`
+    ln -sf "$deref" "$symbolic"
+    echo " -> $deref"
   fi
 done
-for i in `seq $numfiles`;  do
-  echo -n $symbolic
-  deref="~/dotfiles/"`echo "$filelist" | sed -n "$i"p | awk '{print $1}'`
-  ln -sf "$deref" "$symbolic"
-  echo " -> $deref"
-done
+echo 'Setup finished!'
