@@ -16,6 +16,6 @@ done
 for i in `seq $numfiles`;  do
   echo -n $symbolic
   deref="~/dotfiles/"`echo "$filelist" | sed -n "$i"p | awk '{print $1}'`
-  ln -sf $deref $symbolic
+  ln -sf "$deref" "$symbolic"
   echo " -> $deref"
 done
