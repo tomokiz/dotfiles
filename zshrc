@@ -89,6 +89,8 @@ alias la='ls -a'
 alias ll='ls -al'
 alias cmx='chmod +x'
 alias help='echo help | bash'
+alias python='python3'
+alias pip='pip3'
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
