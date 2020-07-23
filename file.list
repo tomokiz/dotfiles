@@ -1,0 +1,6 @@
+#symbolic dereference
+tmux.conf .tmux.conf
+vim .vim
+zsh .zsh
+vimrc .vimrc
+zshrc .zshrc
