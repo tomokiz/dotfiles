@@ -57,7 +57,7 @@ function prompt-git {
 setopt prompt_subst
 
 # プロンプトにメソッドの結果を表示させる
-PROMPT='%B%(!.%{${fg[red]}%}.%{${fg[green]}%})_%n_`prompt-git`%{${fg[blue]}%}%~%{${fg[yellow]}%} > %{${fg[white]}%}%b'
+PROMPT='%B%(!.%{${fg[red]}%}.%{${fg[green]}%})[%n]%{${fg[blue]}%}%~`prompt-git`%{${fg[yellow]}%} > %{${fg[white]}%}%b'
 
 
 #=============================
