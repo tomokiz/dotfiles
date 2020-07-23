@@ -6,6 +6,7 @@ do
 done <<END
 tmux.conf .tmux.conf
 vim .vim
+zsh .zsh
 vimrc .vimrc
 zshrc .zshrc
 END

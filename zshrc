@@ -88,7 +88,6 @@ alias l=ls
 alias la='ls -a'
 alias ll='ls -al'
 alias cmx='chmod +x'
-alias help='echo help | bash'
 alias python='python3'
 alias pip='pip3'
 
