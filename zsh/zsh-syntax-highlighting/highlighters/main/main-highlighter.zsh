@@ -29,15 +29,16 @@
 
 
 # Define default styles.
-: ${ZSH_HIGHLIGHT_STYLES[default]:=none}
+: ${ZSH_HIGHLIGHT_STYLES[default]:=fg=white,bold}
+: ${ZSH_HIGHLIGHT_STYLES[alias]:=fg=yellow,bold}
 : ${ZSH_HIGHLIGHT_STYLES[unknown-token]:=fg=red,bold}
 : ${ZSH_HIGHLIGHT_STYLES[reserved-word]:=fg=yellow}
 : ${ZSH_HIGHLIGHT_STYLES[suffix-alias]:=fg=green,bold}
 : ${ZSH_HIGHLIGHT_STYLES[global-alias]:=fg=cyan}
 : ${ZSH_HIGHLIGHT_STYLES[precommand]:=fg=green,bold}
 : ${ZSH_HIGHLIGHT_STYLES[commandseparator]:=none}
-: ${ZSH_HIGHLIGHT_STYLES[autodirectory]:=fg=blue,underline,bold}
-: ${ZSH_HIGHLIGHT_STYLES[path]:=fg=cyan,bold}
+: ${ZSH_HIGHLIGHT_STYLES[autodirectory]:=fg=blue,bold}
+: ${ZSH_HIGHLIGHT_STYLES[path]:=fg=white,underline,bold}
 : ${ZSH_HIGHLIGHT_STYLES[path_pathseparator]:=}
 : ${ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]:=}
 : ${ZSH_HIGHLIGHT_STYLES[globbing]:=fg=blue}
