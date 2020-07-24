@@ -24,7 +24,6 @@ scriptencoding utf-8
 "行番号・行のライン
 set number
 set cursorline
-set cursorlineopt=number
 
 " ステータスライン
 set laststatus=2
@@ -146,8 +145,7 @@ color molokai
 "vim 起動時に実行される
 if has('vim_starting')
     "ターミナルを起動し、上画面に移動
-    set termwinsize=7x0
-    bo term
+    bo terminal ++close ++rows=7
     wincmd k
 endif
 
@@ -173,7 +171,7 @@ function! ExitTerm()
         let term_tabnr = Bufnr2tabnr(term_list()[0])
         let num_win_in_tabnr = tabpagewinnr(term_tabnr[0], '$')
         if num_win_in_tabnr == 1
-            call term_sendkeys(term_list()[0], "exit\<CR>")
+            qa!
         endif
     endif
 endfunction
