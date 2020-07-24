@@ -59,8 +59,8 @@ repo = 'itchyny/lightline.vim'
 [[plugins]]
 repo = 'mbbill/undotree'
 
-[[plugins]]
-repo = 'vim-jp/vimdoc-ja'
+#[[plugins]]
+#repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
 repo = 'scrooloose/syntastic'
