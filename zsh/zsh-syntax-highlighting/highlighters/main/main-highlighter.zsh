@@ -30,7 +30,6 @@
 
 # Define default styles.
 : ${ZSH_HIGHLIGHT_STYLES[default]:=fg=white,bold}
-: ${ZSH_HIGHLIGHT_STYLES[alias]:=fg=yellow,bold}
 : ${ZSH_HIGHLIGHT_STYLES[unknown-token]:=fg=red,bold}
 : ${ZSH_HIGHLIGHT_STYLES[reserved-word]:=fg=yellow}
 : ${ZSH_HIGHLIGHT_STYLES[suffix-alias]:=fg=green,bold}
