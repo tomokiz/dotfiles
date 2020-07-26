@@ -21,6 +21,9 @@ set pastetoggle=<C-@>
 set encoding=utf-8
 scriptencoding utf-8
 
+" English
+language C
+
 "行番号・行のライン
 set number
 set cursorline
