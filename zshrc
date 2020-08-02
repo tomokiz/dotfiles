@@ -77,7 +77,7 @@ fi
 }
 # zsh-completionsを利用する Github => zsh-completions
 fpath=(~/.zsh-completions $fpath)
-autoload -U compinit && compinit # 補完機能の強化
+autoload -Uz compinit && compinit -u # 補完機能の強化
 # fi
 
 # for w3m
