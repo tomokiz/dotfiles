@@ -114,7 +114,7 @@ if dein#load_state('~/.cache/dein')
    "Let dein manage dein
    " Required:
     call dein#add('~/.cache/dein')
-    let g:rc_dir = '~/dotfiles/vim/deinrc'
+    let g:rc_dir = '~/.vim/deinrc'
     let s:toml      = g:rc_dir . '/dein.toml'
     let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
@@ -174,7 +174,9 @@ function! ExitTerm()
         let term_tabnr = Bufnr2tabnr(term_list()[0])
         let num_win_in_tabnr = tabpagewinnr(term_tabnr[0], '$')
         if num_win_in_tabnr == 1
-            qa!
+            q!
+            bo terminal ++close ++rows=7
+            wincmd k
         endif
     endif
 endfunction
