@@ -128,3 +128,6 @@ export PATH="$PATH:/sbin:/usr/sbin:$HOME/bin:$HOME/.rbenv/bin"
 # setting for ruby
 eval "$(rbenv init -)"
 
+# for tty
+(tty|fgrep -q 'tty') && export LANG=C
+
