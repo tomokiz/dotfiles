@@ -28,7 +28,7 @@ function prompt-git {
   return
   fi
   branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
-  st=`git status 2> /dev/null`
+  st=`LANG=C git status 2> /dev/null`
   if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
   # 全て commit されてクリーンな状態
   branch_status="%{${fg[green]}%}"
@@ -41,7 +41,7 @@ function prompt-git {
   elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
   # git commit されていないファイルがある状態
   branch_status="%{${fg[yellow]}%}"
-  elif [[ -n `echo "$st" | grep "^rebase in progress"` ]]; then
+  elif [[ -n `echo "$st" | grep "rebase in progress"` ]]; then
   # コンフリクトが起こった状態
   echo "%{${fg[red]}%}!(no branch)"
   return
