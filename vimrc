@@ -15,6 +15,17 @@ let g:lightline = {
     \ 'subseparator': { 'left': "/", 'right': "/" }
     \}
 
+" If have Powerline Font
+let exec = system('fc-list | grep Powerline | wc -l')
+if exec > 0
+    let g:lightline = {
+    \  'enable': { 'tabline': 0 },
+    \  'colorscheme': 'landscape',
+    \ 'separator': { 'left': "\u2b80", 'right':"\u2b82" },
+    \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
+    \}
+endif
+
 " Ctrl-@でペーストモード
 set pastetoggle=<C-@>
 
