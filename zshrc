@@ -79,23 +79,23 @@ if [ $(fc-list | grep Powerline | wc -l) -gt 0 ] && [ $TERM != "linux" ]; then
 
     elif [[ -n `echo "$st" | grep "^Changes not staged for commit"` ]]; then
       # git add されていないファイルがある状態
-      echo "%k%K{240}%(!.%F{216}.%F{117})⮀%f %F{252}⭠ %B${branch_name}%b%f %k%K{216}%F{240}⮀%k%f%F{216}⮀%f"
+      echo "%k%K{240}%(!.%F{216}.%F{117})⮀%f %F{252}⭠ %B${branch_name}%b%f %k%K{203}%F{240}⮀%k%f%F{203}⮀%f"
 
     elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
       # git commit されていないファイルがある状態
-      echo "%k%K{240}%(!.%F{216}.%F{117})⮀%f %F{252}⭠ %B${branch_name}%b%f %k%K{180}%F{240}⮀%k%f%F{180}⮀%f"
+      echo "%k%K{240}%(!.%F{216}.%F{117})⮀%f %F{252}⭠ %B${branch_name}%b%f %k%K{229}%F{240}⮀%k%f%F{229}⮀%f"
 
     elif [[ -n `echo "$st" | grep "rebase in progress"` ]]; then
       # コンフリクトが起こった状態
-      echo "%k%K{240}%(!.%F{216}.%F{117})⮀%f %F{216}⭠ %B${branch_name} !!%b%f %k%F{240}⮀%f"
+      echo "%k%K{240}%(!.%F{216}.%F{117})⮀%f %F{203}⭠ %B${branch_name} !!%b%f %k%F{240}⮀%f"
       return
 
     else
       # 上記以外の状態の場合
-      echo "%k%K{240}%(!.%F{216}.%F{117})⮀%f %F{252}⭠ %B${branch_name}%b%f %k%K{216}%F{240}⮀%k%f%F{216}⮀%f"
+      echo "%k%K{240}%(!.%F{216}.%F{117})⮀%f %F{252}⭠ %B${branch_name}%b%f %k%K{203}%F{240}⮀%k%f%F{203}⮀%f"
     fi
   }
-  PROMPT='%(!.%K{216}.%K{117}) %F{238}%(5~,%-2~/.../%2~,%~)%f `prompt-git` '
+PROMPT='%(!.%K{203}.%K{117}) %(!.%F{236}.%F{238})%(5~,%-2~/.../%2~,%~)%f `prompt-git` '
 fi
 
 #=============================
