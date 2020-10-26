@@ -7,7 +7,7 @@
 "Y8P     `8'     o888o o888o o888o o888o d888b    `Y8bod8P'
 
 " ステータスライン設定
-let s:winfont = 'Ricty_Diminished_for_Powerline:h12'
+let s:winfont = 'Ricty for Powerline:h12'
 let g:lightline = {
     \  'enable': { 'tabline': 0 },
     \  'colorscheme': 'landscape',
