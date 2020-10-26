@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ $(acpi | grep Charging | wc -l) -eq 1 ];then
+    statusbar="+"
+elif [ $(acpi | grep Discharging | wc -l) -eq 1 ];then
+    statusbar="-"
+fi
+echo "${statusbar}$(acpi | awk '{print $4}' | sed 's/,//g')"
+
