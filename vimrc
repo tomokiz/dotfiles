@@ -16,14 +16,17 @@ let g:lightline = {
     \}
 
 " If have Powerline Font
-let exec = system('fc-list | grep Powerline | wc -l')
-if exec > 0
-    let g:lightline = {
-    \  'enable': { 'tabline': 0 },
-    \  'colorscheme': 'wombat',
-    \ 'separator': { 'left': "\u2b80", 'right':"\u2b82" },
-    \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
-    \}
+let exec0 = system('fc-list | grep Powerline | wc -l')
+let exec1 = system('echo $TERM | grep linux')
+if exec0 > 0
+    if exec1 == 0
+        let g:lightline = {
+        \  'enable': { 'tabline': 0 },
+        \  'colorscheme': 'wombat',
+        \ 'separator': { 'left': "\u2b80", 'right':"\u2b82" },
+        \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
+        \}
+    endif
 endif
 
 " Ctrl-@でペーストモード
