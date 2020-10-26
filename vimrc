@@ -10,7 +10,7 @@
 let s:winfont = 'Ricty for Powerline:h12'
 let g:lightline = {
     \  'enable': { 'tabline': 0 },
-    \  'colorscheme': 'landscape',
+    \  'colorscheme': 'wombat',
     \ 'separator': { 'left': " ◣", 'right':"◢" },
     \ 'subseparator': { 'left': "/", 'right': "/" }
     \}
@@ -20,7 +20,7 @@ let exec = system('fc-list | grep Powerline | wc -l')
 if exec > 0
     let g:lightline = {
     \  'enable': { 'tabline': 0 },
-    \  'colorscheme': 'landscape',
+    \  'colorscheme': 'wombat',
     \ 'separator': { 'left': "\u2b80", 'right':"\u2b82" },
     \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
     \}
@@ -75,7 +75,7 @@ set completeopt+=menuone,menu,preview
 set pumheight=12
 
 "Use syntax highlight
-syntax  enable
+syntax enable
 
 "for terminalMod
 set splitbelow
@@ -154,7 +154,8 @@ command! DeinCheckClean call dein#check_clean()
 command! DeinUpdate call dein#update()
 
 " colorscheme
-color molokai
+set background=dark
+color lucius
 
 "vim 起動時に実行される
 if has('vim_starting')

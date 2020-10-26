@@ -81,3 +81,9 @@ repo = 'ervandew/supertab'
 [[plugins]]
 repo = 'vim/killersheep'
 
+[[plugins]]
+repo = 'jacoborus/tender'
+
+[[plugins]]
+repo = 'vim-scripts/Lucius'
+
