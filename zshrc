@@ -57,10 +57,45 @@ function prompt-git {
 setopt prompt_subst
 
 # プロンプトにメソッドの結果を表示させる
-PROMPT='[%B%(!.%{${fg[red]}%}.%{${fg[green]}%})%n%b%{${fg[white]}%}@%m:%B%{${fg[blue]}%}%~%b%{${fg[white]}%}]%B`prompt-git`%b%{${fg[white]}%}%(!.#.$) '
+PROMPT='[%B%(!.%{${fg[red]}%}.%{${fg[green]}%})%n%b%{${fg[white]}%}@%m:%B%{${fg[blue]}%}%(5~,%-2~/.../%2~,%~)%b%{${fg[white]}%}]%B`prompt-git`%b%{${fg[white]}%}%(!.#.$) '
 
-if [ $(fc-list | grep Powerline | wc -l) -gt 0 ]; then
-  PROMPT='%K{022} %F{255}%~%f %k%F{022}⮀%f '
+if [ $(fc-list | grep Powerline | wc -l) -gt 0 ] && [ $TERM != "linux" ]; then
+  function prompt-git {
+    local branch_name st branch_status
+
+    if [ ! -e  ".git" ]; then
+      echo '%k%(!.%F{216}.%F{117})⮀%f'
+      return
+    fi
+
+    branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
+    st=`LANG=C git status 2> /dev/null`
+
+    if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+      echo "%k%K{240}%(!.%F{216}.%F{117})⮀%f %F{252}⭠ %B${branch_name}%b%f %k%F{240}⮀%f"
+
+    elif [[ -n `echo "$st" | grep "^Untracked files"` ]]; then
+      echo "%k%K{240}%(!.%F{216}.%F{117})⮀%f %F{252}⭠ %B${branch_name}%b%f %k%K{216}%F{240}⮀%k%f%F{216}⮀%f"
+
+    elif [[ -n `echo "$st" | grep "^Changes not staged for commit"` ]]; then
+      # git add されていないファイルがある状態
+      echo "%k%K{240}%(!.%F{216}.%F{117})⮀%f %F{252}⭠ %B${branch_name}%b%f %k%K{216}%F{240}⮀%k%f%F{216}⮀%f"
+
+    elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
+      # git commit されていないファイルがある状態
+      echo "%k%K{240}%(!.%F{216}.%F{117})⮀%f %F{252}⭠ %B${branch_name}%b%f %k%K{180}%F{240}⮀%k%f%F{180}⮀%f"
+
+    elif [[ -n `echo "$st" | grep "rebase in progress"` ]]; then
+      # コンフリクトが起こった状態
+      echo "%k%K{240}%(!.%F{216}.%F{117})⮀%f %F{216}⭠ %B${branch_name} !!%b%f %k%F{240}⮀%f"
+      return
+
+    else
+      # 上記以外の状態の場合
+      echo "%k%K{240}%(!.%F{216}.%F{117})⮀%f %F{252}⭠ %B${branch_name}%b%f %k%K{216}%F{240}⮀%k%f%F{216}⮀%f"
+    fi
+  }
+  PROMPT='%(!.%K{216}.%K{117}) %F{238}%(5~,%-2~/.../%2~,%~)%f `prompt-git` '
 fi
 
 #=============================
