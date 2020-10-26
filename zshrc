@@ -60,7 +60,7 @@ setopt prompt_subst
 PROMPT='[%B%(!.%{${fg[red]}%}.%{${fg[green]}%})%n%b%{${fg[white]}%}@%m:%B%{${fg[blue]}%}%~%b%{${fg[white]}%}]%B`prompt-git`%b%{${fg[white]}%}%(!.#.$) '
 
 if [ $(fc-list | grep Powerline | wc -l) -gt 0 ]; then
-  PROMPT='%K{255} %F{022}%B%n%b%f %k%F{255}%K{022}⮀%f %F{255}%~%f %k%F{022}⮀%f '
+  PROMPT='%K{022} %F{255}%~%f %k%F{022}⮀%f '
 fi
 
 #=============================
