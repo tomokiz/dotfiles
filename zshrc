@@ -6,6 +6,8 @@ setopt correct # 入力しているコマンド名が間違っている場合に
 setopt nobeep # ビープを鳴らさない
 setopt no_tify # バックグラウンドジョブが終了したらすぐに知らせる。
 setopt auto_cd # ディレクトリ名を入力するだけでcdできるようにする
+setopt share_history # 同時に起動したzshの間でヒストリを共有する。
+setopt hist_ignore_dups # 直前と同じコマンドをヒストリに残さない。
 }
 #ディレクトリを作って移動
 #mkdircd()
