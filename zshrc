@@ -163,7 +163,7 @@ function command_not_found_handler() {
 }
 
 # PATH
-export PATH="$PATH:/sbin:/usr/sbin:$HOME/bin:$HOME/.rbenv/bin"
+export PATH="$PATH:/sbin:/usr/sbin:/snap/bin:$HOME/bin:$HOME/.rbenv/bin"
 
 # setting for ruby
 eval "$(rbenv init -)"
