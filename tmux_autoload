@@ -1,8 +1,10 @@
 #!/bin/bash
 if [ $(acpi | grep Charging | wc -l) -eq 1 ];then
-    statusbar="+"
+    batstatus="↑"
 elif [ $(acpi | grep Discharging | wc -l) -eq 1 ];then
-    statusbar="-"
+    batstatus="↓"
+else
+    batstatus="-"
 fi
-echo "${statusbar}$(acpi | awk '{print $4}' | sed 's/,//g')"
+echo "$((($(cat /sys/class/power_supply/BATA/energy_now) * 100) / $(cat /sys/class/power_supply/BATA/energy_full)))%${batstatus} "
 
