@@ -42,9 +42,6 @@ repo = 'tpope/vim-endwise'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
-hook_add = '''
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-'''
 
 [[plugins]]
 repo = 'luochen1990/rainbow'
@@ -74,9 +71,6 @@ repo = 'tomasr/molokai'
 
 [[plugins]]
 repo = 'vim-scripts/twilight'
-
-[[plugins]]
-repo = 'ervandew/supertab'
 
 [[plugins]]
 repo = 'vim/killersheep'
