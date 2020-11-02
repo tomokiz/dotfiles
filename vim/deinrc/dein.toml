@@ -81,3 +81,6 @@ repo = 'jacoborus/tender'
 [[plugins]]
 repo = 'vim-scripts/Lucius'
 
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
