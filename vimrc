@@ -201,7 +201,7 @@ augroup term-exit
   autocmd BufEnter * call ExitTerm()
 augroup END
 
-# myKeyMapping
+"myKeyMapping
 inoremap <C-e> <Esc>$a
 inoremap <C-a> <Esc>^a
 noremap <C-e> <Esc>$a
