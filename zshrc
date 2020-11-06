@@ -66,9 +66,9 @@ function prompt-git {
 setopt prompt_subst
 
 # プロンプトにメソッドの結果を表示させる
-PROMPT='[%B%(!.%{${fg[red]}%}.%{${fg[green]}%})%n%b%{${fg[white]}%}@%m:%B%{${fg[blue]}%}%(5~,%-2~/.../%2~,%~)%b%{${fg[white]}%}]%B`prompt-git`%b%{${fg[white]}%}%(!.#.$) '
+PROMPT='%{${fg[white]}%}[%B%(!.%{${fg[red]}%}.%{${fg[green]}%})%n%b%{${fg[white]}%}@%m:%B%{${fg[blue]}%}%(5~,%-2~/.../%2~,%~)%b%{${fg[white]}%}]%B`prompt-git`%b%{${fg[white]}%}%(!.#.$) '
 
-if [ $(fc-list | grep Powerline | wc -l) -gt 0 ] && [ $TERM != "linux" ]; then
+if [ $(fc-list | grep Powerline | wc -l) -gt 0 ] && [ $TERM = "xterm-256color" ]; then
   function prompt-git {
     local branch_name st branch_status
 
