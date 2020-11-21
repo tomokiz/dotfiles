@@ -161,45 +161,45 @@ set background=dark
 color lucius
 
 "vim 起動時に実行される
-if has('vim_starting')
-    "ターミナルを起動し、上画面に移動
-    bo terminal ++close ++rows=7
-    wincmd k
-endif
-
-function! CreateBufnr2tabnrDict() abort
-  let bufnr2tabnr_dict = {}
-  for tnr in range(1, tabpagenr('$'))
-    for bnr in tabpagebuflist(tnr)
-      let bufnr2tabnr_dict[bnr] = has_key(bufnr2tabnr_dict, bnr) ? add(bufnr2tabnr_dict[bnr], tnr) : [tnr]
-    endfor
-  endfor
-  for val in values(bufnr2tabnr_dict)
-    call uniq(sort(val))
-  endfor
-  return bufnr2tabnr_dict
-endfunction
-
-function! Bufnr2tabnr(bnr) abort
-  return CreateBufnr2tabnrDict()[a:bnr]
-endfunction
-
-function! ExitTerm()
-    if !empty(term_list())
-        let term_tabnr = Bufnr2tabnr(term_list()[0])
-        let num_win_in_tabnr = tabpagewinnr(term_tabnr[0], '$')
-        if num_win_in_tabnr == 1
-            q!
-            bo terminal ++close ++rows=7
-            wincmd k
-        endif
-    endif
-endfunction
-
-augroup term-exit
-  autocmd!
-  autocmd BufEnter * call ExitTerm()
-augroup END
+"if has('vim_starting')
+"    "ターミナルを起動し、上画面に移動
+"    bo terminal ++close ++rows=7
+"    wincmd k
+"endif
+"
+"function! CreateBufnr2tabnrDict() abort
+"  let bufnr2tabnr_dict = {}
+"  for tnr in range(1, tabpagenr('$'))
+"    for bnr in tabpagebuflist(tnr)
+"      let bufnr2tabnr_dict[bnr] = has_key(bufnr2tabnr_dict, bnr) ? add(bufnr2tabnr_dict[bnr], tnr) : [tnr]
+"    endfor
+"  endfor
+"  for val in values(bufnr2tabnr_dict)
+"    call uniq(sort(val))
+"  endfor
+"  return bufnr2tabnr_dict
+"endfunction
+"
+"function! Bufnr2tabnr(bnr) abort
+"  return CreateBufnr2tabnrDict()[a:bnr]
+"endfunction
+"
+"function! ExitTerm()
+"    if !empty(term_list())
+"        let term_tabnr = Bufnr2tabnr(term_list()[0])
+"        let num_win_in_tabnr = tabpagewinnr(term_tabnr[0], '$')
+"        if num_win_in_tabnr == 1
+"            q!
+"            bo terminal ++close ++rows=7
+"            wincmd k
+"        endif
+"    endif
+"endfunction
+"
+"augroup term-exit
+"  autocmd!
+"  autocmd BufEnter * call ExitTerm()
+"augroup END
 
 "myKeyMapping
 inoremap <C-e> <Esc>$a
