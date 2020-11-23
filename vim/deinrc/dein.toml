@@ -60,7 +60,7 @@ repo = 'mbbill/undotree'
 #repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
-repo = 'scrooloose/syntastic'
+repo = 'w0rp/ale'
 
 [[plugins]]
 repo = 'nvie/vim-flake8'

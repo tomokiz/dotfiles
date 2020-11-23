@@ -207,3 +207,10 @@ inoremap <C-a> <Esc>^a
 noremap <C-e> <Esc>$a
 noremap <C-a> <Esc>^a
 
+"for ale
+let g:ale_linters = {
+    \ 'python': ['flake8'],
+    \ }
+let g:ale_python_flake8_executable = "/usr/bin/env"
+let g:ale_python_flake8_options = "python3 -m flake8"
+
