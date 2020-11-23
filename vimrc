@@ -215,6 +215,6 @@ let g:ale_fixers = {
     \ 'python': ['autopep8', 'isort'],
     \ }
 let g:ale_python_flake8_executable = "/usr/bin/env"
-let g:ale_python_flake8_options = "python3 -m flake8 --max-line-lengh 159"
+let g:ale_python_flake8_options = "python3 -m flake8 --max-line-length 159"
 let g:ale_fix_on_save = 1
 
