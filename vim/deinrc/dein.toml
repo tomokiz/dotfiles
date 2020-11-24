@@ -49,18 +49,12 @@ hook_add = '''
 let g:rainbow_active = 1
 '''
 
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-
 # Undotree
 [[plugins]]
 repo = 'mbbill/undotree'
 
 #[[plugins]]
 #repo = 'vim-jp/vimdoc-ja'
-
-[[plugins]]
-repo = 'w0rp/ale'
 
 [[plugins]]
 repo = 'nvie/vim-flake8'
@@ -96,4 +90,14 @@ repo = 'roxma/nvim-yarp'
 
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'maximbaz/lightline-ale'
+depends = ['lightline.vim', 'ale']
+
+[[plugins]]
+repo = 'w0rp/ale'
 

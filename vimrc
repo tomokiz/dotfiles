@@ -9,6 +9,11 @@
 " ステータスライン設定
 let s:winfont = 'Ricty for Powerline:h12'
 let g:lightline = {
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'readonly', 'filename', 'modified' ],
+    \             [ 'linter_checking', 'linter_errors', 'linter_warnings' ] ],
+    \ },
     \  'enable': { 'tabline': 0 },
     \  'colorscheme': 'wombat',
     \ 'separator': { 'left': " ◣", 'right':"◢" },
@@ -21,6 +26,11 @@ let exec1 = system('echo $TERM | grep linux')
 if exec0 > 0
     if exec1 == 0
         let g:lightline = {
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'readonly', 'filename', 'modified' ],
+    \             [ 'linter_checking', 'linter_errors', 'linter_warnings' ] ],
+    \ },
         \  'enable': { 'tabline': 0 },
         \  'colorscheme': 'wombat',
         \ 'separator': { 'left': "\u2b80", 'right':"\u2b82" },
@@ -201,20 +211,38 @@ color lucius
 "  autocmd BufEnter * call ExitTerm()
 "augroup END
 
+"leader key
+let mapleader = "\<Space>"
+
 "myKeyMapping
-inoremap <C-e> <Esc>$a
-inoremap <C-a> <Esc>^a
-noremap <C-e> <Esc>$a
-noremap <C-a> <Esc>^a
+noremap <Leader>f :ALEFix<CR>
+inoremap <Leader>f <Esc>:ALEFix<CR>
 
 "for ale
 let g:ale_linters = {
     \ 'python': ['flake8'],
+    \   'javascript': ['eslint', 'eslint-plugin-vue'],
+    \   'ruby': ['rubocop'],
+    \   'tex': ['textlint'],
+    \   'markdown': ['textlint'],
+    \   'css': ['stylelint'],
     \ }
 let g:ale_fixers = {
     \ 'python': ['autopep8', 'isort'],
     \ }
 let g:ale_python_flake8_executable = "/usr/bin/env"
 let g:ale_python_flake8_options = "python3 -m flake8 --ignore E501"
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
+let g:ale_sign_column_always = 1
+
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \ }
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \ }
 
