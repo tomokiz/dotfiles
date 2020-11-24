@@ -4,11 +4,11 @@ if [ ${Exec} -ne 0 ]; then
     echo "${Exec}[Error] No Internet Connection!"
     exit
 fi
-git clone --depth 1 https://github.com/vim/vim.git /tmp/vim
-defaultDir=$(pwd)
-echo "[Info] Enter the dir /tmp/vim"
-cd /tmp/vim/src
+echo "[Info] Pulling"
+cd ~/github/vim
+git pull origin master
 echo "[Info] Configuring"
+cd ~/github/vim/src
 make distclean
 confop="--enable-multibyte "
 confop="${confop}--enable-luainterp "
@@ -23,7 +23,5 @@ echo "[Info] Making"
 make -j2
 echo "[Info] Installing"
 sudo make install
-echo "[Info] Back to the dir ${defaultDir}"
-cd ${defaultDir}
 echo "[Info] Finished!"
 
