@@ -248,3 +248,9 @@ let g:lightline.component_type = {
 nmap <silent> <C-k> <plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
+let g:quickrun_config = {
+    \  'python': {
+    \    'command': 'python3'
+    \  },
+    \}
+
