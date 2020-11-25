@@ -216,7 +216,6 @@ let mapleader = "\<Space>"
 
 "myKeyMapping
 noremap <Leader>f :ALEFix<CR>
-inoremap <Leader>f <Esc>:ALEFix<CR>
 
 "for ale
 let g:ale_linters = {
