@@ -299,4 +299,7 @@ map <silent> [Tag]l :tabnext<CR>
 " <Leader>n 次のタブ
 map <silent> [Tag]h :tabprevious<CR>
 " <Leader>p 前のタブ
+hi TabLineFill ctermbg=236
+hi TabLine ctermbg=238 ctermfg=188
+hi TabLineSel ctermbg=242
 
