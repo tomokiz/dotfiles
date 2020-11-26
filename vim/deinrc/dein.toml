@@ -20,9 +20,9 @@ repo = 'kana/vim-textobj-user'
 [[plugins]]
 repo = 'tpope/vim-commentary'
 
-# 様々なアイコンを追加
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
+## 様々なアイコンを追加
+#[[plugins]]
+#repo = 'ryanoasis/vim-devicons'
 
 # S で括弧の追加等ができる
 [[plugins]]
