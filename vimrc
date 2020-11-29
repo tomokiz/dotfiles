@@ -302,3 +302,4 @@ hi TabLineFill ctermbg=236
 hi TabLine ctermbg=238 ctermfg=188
 hi TabLineSel ctermbg=242
 
+autocmd FileType python setlocal completeopt-=preview

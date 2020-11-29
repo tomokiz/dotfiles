@@ -7,3 +7,6 @@ on_ft = ['toml']
 repo = 'keith/swift.vim'
 on_ft = ['swift']
 
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+on_ft = ['python']
