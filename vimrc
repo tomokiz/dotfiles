@@ -215,7 +215,8 @@ color lucius
 let mapleader = "\<Space>"
 
 "myKeyMapping
-noremap <Leader>f :ALEFix<CR>
+noremap <silent><Leader>f :ALEFix<CR>
+noremap <silent><Leader>e :NERDTreeToggle<CR>
 
 "for ale
 let g:ale_linters = {
@@ -302,4 +303,3 @@ hi TabLineFill ctermbg=236
 hi TabLine ctermbg=238 ctermfg=188
 hi TabLineSel ctermbg=242
 
-autocmd FileType python setlocal completeopt-=preview
