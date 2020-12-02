@@ -15,7 +15,7 @@ let g:lightline = {
     \             [ 'linter_checking', 'linter_errors', 'linter_warnings' ] ],
     \ },
     \  'enable': { 'tabline': 0 },
-    \  'colorscheme': 'wombat',
+    \  'colorscheme': 'onedark',
     \ 'separator': { 'left': " ◣", 'right':"◢" },
     \ 'subseparator': { 'left': "/", 'right': "/" }
     \}
@@ -32,7 +32,7 @@ if exec0 > 0
     \             [ 'linter_checking', 'linter_errors', 'linter_warnings' ] ],
     \ },
         \  'enable': { 'tabline': 0 },
-        \  'colorscheme': 'wombat',
+        \  'colorscheme': 'onedark',
         \ 'separator': { 'left': "\u2b80", 'right':"\u2b82" },
         \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
         \}
@@ -168,7 +168,7 @@ command! DeinUpdate call dein#update()
 
 " colorscheme
 set background=dark
-color lucius
+color onedark
 
 "vim 起動時に実行される
 "if has('vim_starting')
@@ -269,10 +269,14 @@ function! s:my_tabline()  "{{{
     let no = i  " display 0-origin tabpagenr.
     let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
     let title = fnamemodify(bufname(bufnr), ':t')
-    let title = '[' . title . ']'
+    if title == ''
+        let title = '[No Name]'
+    else
+        let title = ' ' . title . ' '
+    endif
     let s .= '%'.i.'T'
     let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
-    let s .= no . ':' . title
+    let s .= ' ' . no . ':' . title
     let s .= mod
     let s .= '%#TabLineFill# '
   endfor
@@ -299,7 +303,7 @@ map <silent> [Tag]l :tabnext<CR>
 " <Leader>n 次のタブ
 map <silent> [Tag]h :tabprevious<CR>
 " <Leader>p 前のタブ
-hi TabLineFill ctermbg=236
-hi TabLine ctermbg=238 ctermfg=188
-hi TabLineSel ctermbg=242
+hi TabLineFill ctermbg=235
+hi TabLine ctermbg=236 ctermfg=145
+hi TabLineSel ctermbg=114 ctermfg=235
 
