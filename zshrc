@@ -1,5 +1,3 @@
-#last Update 2019/05/06
-
 # if [ $SHLVL -gt 1 ]; then
 : "一般的な設定" && {
 setopt correct # 入力しているコマンド名が間違っている場合にもしかして：を出す。
@@ -178,3 +176,6 @@ eval "$(rbenv init -)"
 # for tty
 (tty|fgrep -q 'tty') && export LANG=C
 
+if [ -e ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+fi

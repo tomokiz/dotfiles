@@ -307,3 +307,7 @@ hi TabLineFill ctermbg=235
 hi TabLine ctermbg=236 ctermfg=145
 hi TabLineSel ctermbg=114 ctermfg=235
 
+" local setting
+if glob("~/.vimrc.local") != ''
+    source ~/.vimrc.local
+endif
