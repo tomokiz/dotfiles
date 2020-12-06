@@ -5,10 +5,10 @@ if [ ${Exec} -ne 0 ]; then
     exit
 fi
 echo "[Info] Pulling"
-cd ~/github/vim
+cd ~/.src/github/vim
 git pull origin master
 echo "[Info] Configuring"
-cd ~/github/vim/src
+cd ~/.src/github/vim/src
 make distclean
 confop="--enable-multibyte "
 confop="${confop}--enable-luainterp "
