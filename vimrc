@@ -21,22 +21,19 @@ let g:lightline = {
     \}
 
 " If have Powerline Font
-let exec0 = system('fc-list | grep Powerline | wc -l')
-let exec1 = system('echo $TERM | grep linux')
-if exec0 > 0
-    if exec1 == 0
-        let g:lightline = {
+let exec0 = system('~/dotfiles/gettermfont | grep -i powerline | wc -l')
+if exec0 != 0
+    let g:lightline = {
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'readonly', 'filename', 'modified' ],
     \             [ 'linter_checking', 'linter_errors', 'linter_warnings' ] ],
     \ },
-        \  'enable': { 'tabline': 0 },
-        \  'colorscheme': 'onedark',
-        \ 'separator': { 'left': "\u2b80", 'right':"\u2b82" },
-        \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
-        \}
-    endif
+    \  'enable': { 'tabline': 0 },
+    \  'colorscheme': 'onedark',
+    \ 'separator': { 'left': "\u2b80", 'right':"\u2b82" },
+    \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
+    \}
 endif
 
 " Ctrl-@でペーストモード
