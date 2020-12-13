@@ -1,5 +1,8 @@
 #!/bin/bash
 term=$(ps -p $(xdotool getactivewindow getwindowpid) o cmd h | sed -e 's/.*\///')
+if [ $(whoami) == 'root' ]; then
+    term=$(ps -p $(sudo -u $(who | grep :0 | awk '{print $1}') xdotool getactivewindow getwindowpid) o cmd h | sed -e 's/,*\///')
+fi
 trim() {
     set -f
     # shellcheck disable=2048,2086
