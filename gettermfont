@@ -1,8 +1,9 @@
 #!/bin/bash
-term=$(ps -p $(xdotool getactivewindow getwindowpid) o cmd h | sed -e 's/.*\///')
 if [ $(whoami) == 'root' ]; then
-    term=$(ps -p $(sudo -u $(who | grep :0 | awk '{print $1}') xdotool getactivewindow getwindowpid) o cmd h | sed -e 's/,*\///')
+    sudo -u $(who | grep :0 | awk '{print $1}') $0
+    exit
 fi
+term=$(ps -p $(xdotool getwindowpid $(xprop -root | grep _NET_ACTIVE_WINDOW\(WINDOW\) | awk '{print $5}')) o cmd h | sed -e 's/.*\///')
 trim() {
     set -f
     # shellcheck disable=2048,2086
@@ -333,7 +334,7 @@ END
     ;;
     guake)
         font=$(dconf read /apps/guake/style/font/style | sed s/\'//g)
-        if [ $(dconf read /apps/guake/general/use-default-font) == "true" ]; then
+        if [ "$(dconf read /apps/guake/general/use-default-font)" == 'true' ]; then
             font="$(gsettings get org.gnome.desktop.interface monospace-font-name)"
         fi
     ;;
