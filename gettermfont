@@ -1,9 +1,9 @@
 #!/bin/bash
 if [ $(whoami) == 'root' ]; then
-    sudo -u $(who | grep :0 | awk '{print $1}') $0
+    sudo -u $(who | grep :0 | awk '{print $1}') /home/$(who | grep :0 | awk '{print $1}')/dotfiles/gettermfont
     exit
 fi
-term=$(ps -p $(xdotool getwindowpid $(xprop -root | grep _NET_ACTIVE_WINDOW\(WINDOW\) | awk '{print $5}')) o cmd h | sed -e 's/.*\///')
+term=$(ps -p $(xprop -id $(xprop -root | grep _NET_ACTIVE_WINDOW\(WINDOW\) | awk '{print $5}') _NET_WM_PID | awk '{print $3}') o cmd h | sed -e 's/.*\///')
 trim() {
     set -f
     # shellcheck disable=2048,2086
