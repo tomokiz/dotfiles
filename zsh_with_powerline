@@ -1,0 +1,3 @@
+#!/bin/bash
+export TERMEMU="haspowerline"
+/bin/zsh

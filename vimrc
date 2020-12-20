@@ -21,7 +21,7 @@ let g:lightline = {
     \}
 
 " If have Powerline Font
-let exec0 = system('~/dotfiles/gettermfont | grep -i powerline | wc -l')
+let exec0 = system('echo $TERMEMU | grep -i haspowerline | wc -l')
 if exec0 != 0
     let g:lightline = {
     \ 'active': {
