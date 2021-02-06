@@ -28,3 +28,6 @@
 [submodule "vim/pack/bronson/start/vim-trailing-whitespace"]
 	path = vim/pack/bronson/start/vim-trailing-whitespace
 	url = https://github.com/bronson/vim-trailing-whitespace.git
+[submodule "vim/pack/thinca/start/vim-quickrun"]
+	path = vim/pack/thinca/start/vim-quickrun
+	url = https://github.com/thinca/vim-quickrun.git
