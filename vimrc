@@ -189,7 +189,7 @@ function! SetStatusLine()
   elseif mode() =~ 'R'
     let c = 3
     let mode_name = 'R'
-  else
+  elseif mode() =~ 'V'
     let c = 4
     let mode_name = 'V'
   endif
