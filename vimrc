@@ -202,3 +202,6 @@ hi User3 term=bold ctermfg=235 ctermbg=204
 hi User4 term=bold ctermfg=235 ctermbg=170
 
 set statusline=%!SetStatusLine()
+
+" for rainbow
+let g:rainbow_active = 1
