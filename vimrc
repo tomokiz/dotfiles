@@ -19,10 +19,6 @@ language C
 set number
 set cursorline
 
-" ステータスライン
-set laststatus=2
-set noshowmode
-
 "文字コード
 set fileencoding=utf-8
 scriptencoding utf-8
@@ -189,3 +185,30 @@ hi TabLineSel ctermbg=114 ctermfg=235
 if glob("~/.vimrc.local") != ''
     source ~/.vimrc.local
 endif
+
+" statusline
+set laststatus=2
+set noshowmode
+function! SetStatusLine()
+  if mode() =~ 'i'
+    let c = 1
+    let mode_name = 'I'
+  elseif mode() =~ 'n'
+    let c = 2
+    let mode_name = 'N'
+  elseif mode() =~ 'R'
+    let c = 3
+    let mode_name = 'R'
+  else
+    let c = 4
+    let mode_name = 'V'
+  endif
+  return '%' . c . '* ' . mode_name . ' %* %<%F%=%m%r %18([%{toupper(&ft)}][%l/%L]%)'
+endfunction
+
+hi User1 term=bold ctermfg=235 ctermbg=114
+hi User2 term=bold ctermfg=235 ctermbg=39
+hi User3 term=bold ctermfg=235 ctermbg=204
+hi User4 term=bold ctermfg=235 ctermbg=170
+
+set statusline=%!SetStatusLine()
