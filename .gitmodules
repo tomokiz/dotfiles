@@ -16,3 +16,6 @@
 [submodule "vim/pack/Yggdroot/start/indentLine"]
 	path = vim/pack/Yggdroot/start/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
+[submodule "vim/pack/vim/start/killersheep"]
+	path = vim/pack/vim/start/killersheep
+	url = https://github.com/vim/killersheep.git
