@@ -25,3 +25,6 @@
 [submodule "vim/pack/tpope/start/vim-commentary"]
 	path = vim/pack/tpope/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim/pack/bronson/start/vim-trailing-whitespace"]
+	path = vim/pack/bronson/start/vim-trailing-whitespace
+	url = https://github.com/bronson/vim-trailing-whitespace.git
