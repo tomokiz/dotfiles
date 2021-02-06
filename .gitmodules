@@ -19,3 +19,6 @@
 [submodule "vim/pack/vim/start/killersheep"]
 	path = vim/pack/vim/start/killersheep
 	url = https://github.com/vim/killersheep.git
+[submodule "vim/pack/luochen1990/start/rainbow"]
+	path = vim/pack/luochen1990/start/rainbow
+	url = https://github.com/luochen1990/rainbow.git
