@@ -22,3 +22,6 @@
 [submodule "vim/pack/luochen1990/start/rainbow"]
 	path = vim/pack/luochen1990/start/rainbow
 	url = https://github.com/luochen1990/rainbow.git
+[submodule "vim/pack/tpope/start/vim-commentary"]
+	path = vim/pack/tpope/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
