@@ -115,54 +115,6 @@ set mouse=a
 nnoremap j gj
 nnoremap k gk
 
-" ______  _______ _____ __   _   _    _ _____ _______
-" |     \ |______   |   | \  |    \  /    |   |  |  |
-" |_____/ |______ __|__ |  \_| .   \/   __|__ |  |  |
-"dein Scripts-----------------------------
-" dein自体の自動インストール
-let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-let s:dein_dir = s:cache_home . '/dein'
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-if !isdirectory(s:dein_repo_dir)
-  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
-endif
-let &runtimepath = s:dein_repo_dir .",". &runtimepath
-" Required:
-set runtimepath+=/Users/katokota/.vim/./dein/repos/github.com/Shougo/dein.vim
-" Required:
-if dein#load_state('~/.cache/dein')
-    call dein#begin('~/.cache/dein')
-   "Let dein manage dein
-   " Required:
-    call dein#add('~/.cache/dein')
-    let g:rc_dir = '~/.vim/deinrc'
-    let s:toml      = g:rc_dir . '/dein.toml'
-    let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
-
-    call dein#load_toml(s:toml,      {'lazy': 0})
-    call dein#load_toml(s:lazy_toml, {'lazy': 1})
-    " Required:
-    call dein#end()
-    call dein#save_state()
-endif
-" Required:
-filetype plugin indent on
-syntax enable
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-    call dein#install()
-endif
-"End dein Scripts-------------------------
-"For dein
-function! s:DeinCleanf()
-    call map(dein#check_clean(), "delete(v:val, 'rf')")
-    call dein#recache_runtimepath()
-endfunction
-
-command! DeinCheckInstall call dein#check_install()
-command! DeinCheckClean call dein#check_clean()
-command! DeinUpdate call dein#update()
-
 " colorscheme
 set background=dark
 color onedark
