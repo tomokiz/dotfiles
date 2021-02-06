@@ -13,3 +13,6 @@
 [submodule "vim/pack/mattn/start/vim-lsp-settings"]
 	path = vim/pack/mattn/start/vim-lsp-settings
 	url = https://github.com/mattn/vim-lsp-settings.git
+[submodule "vim/pack/Yggdroot/start/indentLine"]
+	path = vim/pack/Yggdroot/start/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
