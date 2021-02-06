@@ -109,16 +109,6 @@ let g:ale_python_flake8_options = "python3 -m flake8 --ignore E501"
 let g:ale_fix_on_save = 0
 let g:ale_sign_column_always = 1
 
-let g:lightline.component_expand = {
-      \  'linter_checking': 'lightline#ale#checking',
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \ }
-let g:lightline.component_type = {
-      \     'linter_checking': 'left',
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error',
-      \ }
 nmap <silent> <C-k> <plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
