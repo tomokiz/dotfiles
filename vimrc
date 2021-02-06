@@ -180,6 +180,8 @@ endif
 set laststatus=2
 set noshowmode
 function! SetStatusLine()
+  let c = 2
+  let mode_name = 'N'
   if mode() =~ 'i'
     let c = 1
     let mode_name = 'I'
