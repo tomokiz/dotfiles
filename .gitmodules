@@ -31,3 +31,6 @@
 [submodule "vim/pack/thinca/start/vim-quickrun"]
 	path = vim/pack/thinca/start/vim-quickrun
 	url = https://github.com/thinca/vim-quickrun.git
+[submodule "vim/pack/mattn/start/sonictemplate-vim"]
+	path = vim/pack/mattn/start/sonictemplate-vim
+	url = https://github.com/mattn/sonictemplate-vim.git
