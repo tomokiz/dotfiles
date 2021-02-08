@@ -34,3 +34,6 @@
 [submodule "vim/pack/mattn/start/sonictemplate-vim"]
 	path = vim/pack/mattn/start/sonictemplate-vim
 	url = https://github.com/mattn/sonictemplate-vim.git
+[submodule "vim/pack/kato-k/start/vim-colorscheme-settings"]
+	path = vim/pack/kato-k/start/vim-colorscheme-settings
+	url = https://github.com/kato-k/vim-colorscheme-settings.git
