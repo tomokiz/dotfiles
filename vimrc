@@ -207,3 +207,8 @@ set statusline=%!SetStatusLine()
 
 " for rainbow
 let g:rainbow_active = 1
+
+" add my template
+let g:sonictemplate_vim_template_dir = [
+    \ '~/.vim/template'
+    \]
