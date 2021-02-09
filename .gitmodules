@@ -37,3 +37,6 @@
 [submodule "vim/pack/kato-k/start/vim-colorscheme-settings"]
 	path = vim/pack/kato-k/start/vim-colorscheme-settings
 	url = https://github.com/kato-k/vim-colorscheme-settings.git
+[submodule "zsh/zsh-vimode-visual"]
+	path = zsh/zsh-vimode-visual
+	url = https://github.com/b4b4r07/zsh-vimode-visual
