@@ -6,13 +6,6 @@ setopt no_tify # バックグラウンドジョブが終了したらすぐに知
 setopt auto_cd # ディレクトリ名を入力するだけでcdできるようにする
 setopt share_history # 同時に起動したzshの間でヒストリを共有する。
 setopt hist_ignore_dups # 直前と同じコマンドをヒストリに残さない。
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
-bindkey "OA" history-beginning-search-backward-end
-bindkey "OB" history-beginning-search-forward-end
 }
 #ディレクトリを作って移動
 #mkdircd()
@@ -79,6 +72,14 @@ RPROMPT="${${${${KEYMAP/vicmd/$VIM_NORMAL}/vivli/$VIM_VLINE}/vivis/$VIM_VISUAL}/
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
+
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+bindkey "[A" history-beginning-search-backward-end
+bindkey "[B" history-beginning-search-forward-end
 
 #=============================
 # source zsh-syntax-highlighting
