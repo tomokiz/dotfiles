@@ -39,7 +39,7 @@
 	url = https://github.com/kato-k/vim-colorscheme-settings.git
 [submodule "zsh/zsh-vimode-visual"]
 	path = zsh/zsh-vimode-visual
-	url = https://github.com/b4b4r07/zsh-vimode-visual
-[submodule "zsh/zsh/zsh-vimode-visual"]
-	path = zsh/zsh/zsh-vimode-visual
-	url = https://github.com/b4b4r07/zsh-vimode-visual
+	url = https://github.com/b4b4r07/zsh-vimode-visual.git
+[submodule "zsh/zsh-syntax-highlighting"]
+	path = zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
