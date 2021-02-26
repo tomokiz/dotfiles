@@ -14,6 +14,7 @@ setopt hist_ignore_dups # 直前と同じコマンドをヒストリに残さな
 #  cd $1
 #}
 
+echo "[;1mWelcome `whoami` ![m"
 autoload -Uz colors
 colors
 
@@ -53,12 +54,35 @@ function prompt-git {
   echo "${branch_status}($branch_name)"
 }
 
+top_line="true"
+
+function my_accept_line() {
+    if [[ $top_line == "true" ]]; then
+        current_prompt="
+$PROMPT"
+        PROMPT=$BASE_PROMPT
+    else
+        current_prompt=$PROMPT
+        PROMPT="
+$BASE_PROMPT"
+    fi
+    top_line="false"
+    zle reset-prompt
+    PROMPT=$current_prompt
+    zle accept-line
+}
+
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 
 # プロンプトにメソッドの結果を表示させる
-PROMPT='%F{white}%B%(!.%F{red}.%F{green})%n@%m%b%f%F{white}:%f%B%f%F{blue}%(5~,%-2~/.../%2~,%~)%b%F{white}%B`prompt-git`%b%f%F{white}%(!.#.$) %f'
+BASE_PROMPT='%B%f%F{blue} %(5~,%-2~/.../%2~,%~)%b%F{white}%B`prompt-git`%b%f%F{yellow} > %f'
+PROMPT="%F{white}[%B%(!.%F{red}.%F{green})%n%f@%m%b]%f
+$BASE_PROMPT"
 RPROMPT=""
+
+zle -N my_accept_line
+bindkey '^M' my_accept_line
 
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
