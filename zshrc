@@ -54,35 +54,23 @@ function prompt-git {
   echo "${branch_status}($branch_name)"
 }
 
-top_line="true"
+# function delete_rprompt() {
+#   rprompt=$RPROMPT
+#   RPROMPT=''
+#   zle reset-prompt
+#   RPROMPT=$rprompt
+#   zle accept-line
+# }
 
-function my_accept_line() {
-    if [[ $top_line == "true" ]]; then
-        current_prompt="
-$PROMPT"
-        PROMPT=$BASE_PROMPT
-    else
-        current_prompt=$PROMPT
-        PROMPT="
-$BASE_PROMPT"
-    fi
-    top_line="false"
-    zle reset-prompt
-    PROMPT=$current_prompt
-    zle accept-line
-}
+# zle -N delete_rprompt
+# bindkey '^M' delete_rprompt
 
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 
 # プロンプトにメソッドの結果を表示させる
-BASE_PROMPT='%B%f%F{blue} %(5~,%-2~/.../%2~,%~)%b%F{white}%B`prompt-git`%b%f%F{yellow} > %f'
-PROMPT="%F{white}[%B%(!.%F{red}.%F{green})%n%f@%m%b]%f
-$BASE_PROMPT"
-RPROMPT=""
-
-zle -N my_accept_line
-bindkey '^M' my_accept_line
+PROMPT='%B%f%F{blue}%(5~,%-2~/.../%2~,%~)%b%F{white}%B`prompt-git`%b%f%F{yellow} > %f'
+RPROMPT="%F{white}[%B%(!.%F{red}.%F{green})%n%f@%m%b]%f"
 
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
