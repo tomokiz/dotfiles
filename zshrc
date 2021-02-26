@@ -60,19 +60,6 @@ setopt prompt_subst
 PROMPT='%F{white}%B%(!.%F{red}.%F{green})%n@%m%b%f%F{white}:%f%B%f%F{blue}%(5~,%-2~/.../%2~,%~)%b%F{white}%B`prompt-git`%b%f%F{white}%(!.#.$) %f'
 RPROMPT=""
 
-# source ~/.zsh/zsh-vimode-visual/zsh-vimode-visual.zsh
-# bindkey -v
-# function zle-line-init zle-keymap-select {
-# VIM_NORMAL="%F{white}%B--NORMAL--%b%f"
-# VIM_INSERT="%F{blue}%B--INSERT--%b%f"
-# VIM_VISUAL="%F{magenta}%B--VISUAL--%b%f"
-# VIM_VLINE="%F{magenta}%B--V-LINE--%b%f"
-# RPROMPT="${${${${KEYMAP/vicmd/$VIM_NORMAL}/vivli/$VIM_VLINE}/vivis/$VIM_VISUAL}/(main|viins)/$VIM_INSERT}"
-#     zle reset-prompt
-# }
-# zle -N zle-line-init
-# zle -N zle-keymap-select
-
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
