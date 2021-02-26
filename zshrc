@@ -69,7 +69,7 @@ function prompt-git {
 setopt prompt_subst
 
 # プロンプトにメソッドの結果を表示させる
-PROMPT=' %B%f%F{blue}%(5~,%-2~/.../%2~,%~)%b%F{white}%B`prompt-git`%b%f%F{yellow} > %f'
+PROMPT='%B%f%F{blue}%(5~,%-2~/.../%2~,%~)%b%F{white}%B`prompt-git`%b%f%F{yellow} > %f'
 RPROMPT="%F{white}[%B%(!.%F{red}.%F{green})%n%f@%m%b]%f"
 
 autoload history-search-end
