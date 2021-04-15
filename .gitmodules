@@ -43,3 +43,6 @@
 [submodule "zsh/zsh-syntax-highlighting"]
 	path = zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "vim/pack/neoclide/start/coc.nvim"]
+	path = vim/pack/neoclide/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git

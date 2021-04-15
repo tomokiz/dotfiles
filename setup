@@ -17,4 +17,6 @@ for i in `seq $numfiles`;  do
     echo " -> $deref"
   fi
 done
+echo 'Installing requirements for python ...'
+/usr/bin/env python3 -m pip install -r ~/dotfiles/pyrequirements.txt
 echo 'Setup finished!'
