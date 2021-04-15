@@ -19,4 +19,8 @@ for i in `seq $numfiles`;  do
 done
 echo 'Installing requirements for python ...'
 /usr/bin/env python3 -m pip install -r ~/dotfiles/pyrequirements.txt
+echo 'Installing submodule ...'
+cd ~/dotfiles
+git submodule update --init
+cd -
 echo 'Setup finished!'
