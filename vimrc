@@ -99,34 +99,15 @@ nnoremap k gk
 " colorscheme
 set background=dark
 color onedark
+set t_Co=256
 
 "leader key
 let mapleader = "\<Space>"
 
 "myKeyMapping
-noremap <silent><Leader>f :ALEFix<CR>
 noremap <silent><Leader>e :NERDTreeToggle<CR>
 
-"for ale
-let g:ale_linters = {
-    \ 'python': ['flake8'],
-    \   'javascript': ['eslint', 'eslint-plugin-vue'],
-    \   'ruby': ['rubocop'],
-    \   'tex': ['textlint'],
-    \   'markdown': ['textlint'],
-    \   'css': ['stylelint'],
-    \ }
-let g:ale_fixers = {
-    \ 'python': ['autopep8', 'isort'],
-    \ }
-let g:ale_python_flake8_executable = "/usr/bin/env"
-let g:ale_python_flake8_options = "python3 -m flake8 --ignore E501"
-let g:ale_fix_on_save = 0
-let g:ale_sign_column_always = 1
-
-nmap <silent> <C-k> <plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
+"quickrun settings
 let g:quickrun_config = {
     \  'python': {
     \    'command': 'python3'
@@ -223,7 +204,16 @@ let g:sonictemplate_vim_template_dir = [
     \ '~/.vim/template'
     \]
 
-" local setting
+" lsp settings
+set signcolumn=yes
+let g:lsp_diagnostics_signs_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_signs_error = {'text': '>>'}
+let g:lsp_diagnostics_signs_warning = {'text': '--'}
+let g:lsp_diagnostics_signs_hint = {'text': '!!'}
+noremap <silent><Leader>f :LspDocumentFormat<CR>
+
+" local settings
 if glob("~/.vimrc.local") != ''
     source ~/.vimrc.local
 endif
