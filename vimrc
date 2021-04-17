@@ -213,6 +213,12 @@ let g:lsp_diagnostics_signs_warning = {'text': '--'}
 let g:lsp_diagnostics_signs_hint = {'text': '!!'}
 noremap <silent><Leader>f :LspDocumentFormat<CR>
 
+" Translate settings
+let g:translate_source = "en"
+let g:translate_target = "ja"
+nmap gr <Plug>(Translate)
+vmap t <Plug>(VTranslate)
+
 " local settings
 if glob("~/.vimrc.local") != ''
     source ~/.vimrc.local

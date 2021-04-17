@@ -19,3 +19,4 @@ tpope/vim-surround
 tpope/vim-fugitive
 airblade/vim-gitgutter
 jiangmiao/auto-pairs
+skanehira/translate.vim
