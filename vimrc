@@ -6,6 +6,21 @@
 ".o.    `888'     888   888   888   888   888     888   .o8
 "Y8P     `8'     o888o o888o o888o o888o d888b    `Y8bod8P'
 
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin('~/.cache/vundle')
+
+Plugin 'VundleVim/Vundle.vim'
+
+let pluginlist=$HOME.'/.vim/plugins.list'
+for line in readfile(pluginlist)
+    Plugin line
+endfor
+
+call vundle#end()
+filetype plugin indent on
+
 " Ctrl-@でペーストモード
 set pastetoggle=<C-@>
 

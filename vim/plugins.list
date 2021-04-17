@@ -1,0 +1,13 @@
+dense-analysis/ale
+scrooloose/nerdtree
+prabirshrestha/vim-lsp
+mattn/vim-lsp-settings
+Yggdroot/indentLine
+vim/killersheep
+luochen1990/rainbow
+tpope/vim-commentary
+bronson/vim-trailing-whitespace
+thinca/vim-quickrun
+mattn/sonictemplate-vim
+kato-k/vim-colorscheme-settings
+neoclide/coc.nvim
