@@ -208,9 +208,9 @@ let g:sonictemplate_vim_template_dir = [
 set signcolumn=yes
 let g:lsp_diagnostics_signs_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
-let g:lsp_diagnostics_signs_error = {'text': '>>'}
-let g:lsp_diagnostics_signs_warning = {'text': '--'}
-let g:lsp_diagnostics_signs_hint = {'text': '!!'}
+let g:lsp_diagnostics_signs_error = {'text': 'E>'}
+let g:lsp_diagnostics_signs_warning = {'text': 'W>'}
+let g:lsp_diagnostics_signs_hint = {'text': 'I>'}
 noremap <silent><Leader>f :LspDocumentFormat<CR>
 
 " Translate settings
