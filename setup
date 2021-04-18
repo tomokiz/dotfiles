@@ -11,7 +11,11 @@ for i in `seq $numfiles`;  do
   name=~/dotfiles/`echo "$filelist" | sed -n "$i"p | awk '{print $1}'`
   echo -n "$name -- "
   if [ -e "$symbolic" ];  then
-    printf '\033[32;1m%s\033[m\n' "Installed"
+    if [ `file $symbolic | grep symbolic | wc -l` -eq 1 ]; then
+      printf '\033[32;1m%s\033[m\n' "Installed"
+    else
+      printf '\033[31;1m%s\033[m\n' "Exist!"
+    fi
   else
     ln -sf $name $symbolic
     printf '\033[32;1m%s\033[m\n' "Installed"
