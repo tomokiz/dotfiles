@@ -21,3 +21,4 @@ airblade/vim-gitgutter
 jiangmiao/auto-pairs
 skanehira/translate.vim
 laddge/InsEmoji.vim
+psf/black

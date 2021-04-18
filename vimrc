@@ -209,7 +209,7 @@ function Fix()
     if &filetype == 'python'
         if executable('black')
             if exists("g:load_black")
-                call system('black')
+                Black
                 return 0
             endif
         endif
