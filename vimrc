@@ -205,13 +205,24 @@ let g:sonictemplate_vim_template_dir = [
     \]
 
 " lsp settings
+function Fix()
+    if &filetype == 'python'
+        if executable('black')
+            if exists("g:load_black")
+                call system('black')
+                return 0
+            endif
+        endif
+    endif
+    LspDocumentFormat
+endfunction
 set signcolumn=yes
 let g:lsp_diagnostics_signs_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_signs_error = {'text': 'E>'}
 let g:lsp_diagnostics_signs_warning = {'text': 'W>'}
 let g:lsp_diagnostics_signs_hint = {'text': 'I>'}
-noremap <silent><Leader>f :LspDocumentFormat<CR>
+noremap <silent><Leader>f :call Fix()<CR>
 
 " Translate settings
 let g:translate_source = "en"
