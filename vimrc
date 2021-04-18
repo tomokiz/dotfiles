@@ -6,6 +6,21 @@
 ".o.    `888'     888   888   888   888   888     888   .o8
 "Y8P     `8'     o888o o888o o888o o888o d888b    `Y8bod8P'
 
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin('~/.cache/vundle')
+
+Plugin 'VundleVim/Vundle.vim'
+
+let pluginlist=$HOME.'/.vim/plugins.list'
+for line in readfile(pluginlist)
+    Plugin line
+endfor
+
+call vundle#end()
+filetype plugin indent on
+
 " Ctrl-@でペーストモード
 set pastetoggle=<C-@>
 
@@ -84,34 +99,15 @@ nnoremap k gk
 " colorscheme
 set background=dark
 color onedark
+set t_Co=256
 
 "leader key
 let mapleader = "\<Space>"
 
 "myKeyMapping
-noremap <silent><Leader>f :ALEFix<CR>
 noremap <silent><Leader>e :NERDTreeToggle<CR>
 
-"for ale
-let g:ale_linters = {
-    \ 'python': ['flake8'],
-    \   'javascript': ['eslint', 'eslint-plugin-vue'],
-    \   'ruby': ['rubocop'],
-    \   'tex': ['textlint'],
-    \   'markdown': ['textlint'],
-    \   'css': ['stylelint'],
-    \ }
-let g:ale_fixers = {
-    \ 'python': ['autopep8', 'isort'],
-    \ }
-let g:ale_python_flake8_executable = "/usr/bin/env"
-let g:ale_python_flake8_options = "python3 -m flake8 --ignore E501"
-let g:ale_fix_on_save = 0
-let g:ale_sign_column_always = 1
-
-nmap <silent> <C-k> <plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
+"quickrun settings
 let g:quickrun_config = {
     \  'python': {
     \    'command': 'python3'
@@ -171,11 +167,6 @@ hi TabLineFill ctermbg=235
 hi TabLine ctermbg=236 ctermfg=145
 hi TabLineSel ctermbg=114 ctermfg=235
 
-" local setting
-if glob("~/.vimrc.local") != ''
-    source ~/.vimrc.local
-endif
-
 " statusline
 set laststatus=2
 set noshowmode
@@ -212,3 +203,34 @@ let g:rainbow_active = 1
 let g:sonictemplate_vim_template_dir = [
     \ '~/.vim/template'
     \]
+
+" lsp settings
+function Fix()
+    if &filetype == 'python'
+        if executable('black')
+            if exists("g:load_black")
+                Black
+                return 0
+            endif
+        endif
+    endif
+    LspDocumentFormat
+endfunction
+set signcolumn=yes
+let g:lsp_diagnostics_signs_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_signs_error = {'text': 'E>'}
+let g:lsp_diagnostics_signs_warning = {'text': 'W>'}
+let g:lsp_diagnostics_signs_hint = {'text': 'I>'}
+noremap <silent><Leader>f :call Fix()<CR>
+
+" Translate settings
+let g:translate_source = "en"
+let g:translate_target = "ja"
+nmap gr <Plug>(Translate)
+vmap t <Plug>(VTranslate)
+
+" local settings
+if glob("~/.vimrc.local") != ''
+    source ~/.vimrc.local
+endif

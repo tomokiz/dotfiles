@@ -4,3 +4,4 @@ vim .vim
 zsh .zsh
 vimrc .vimrc
 zshrc .zshrc
+pycodestyle .config/pycodestyle
