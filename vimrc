@@ -99,7 +99,7 @@ nnoremap k gk
 " colorscheme
 set background=dark
 color iceberg
-set t_Co=256
+set termguicolors
 
 "leader key
 let mapleader = "\<Space>"
@@ -163,9 +163,6 @@ map <silent> [Tag]l :tabnext<CR>
 " <Leader>n 次のタブ
 map <silent> [Tag]h :tabprevious<CR>
 " <Leader>p 前のタブ
-hi TabLineFill term=NONE cterm=NONE ctermbg=234
-hi TabLine term=NONE cterm=NONE ctermfg=234 ctermbg=234
-hi TabLineSel term=bold cterm=bold ctermfg=253 ctermbg=237
 
 " statusline
 set laststatus=2
@@ -189,11 +186,11 @@ function! SetStatusLine()
   return '%' . c . '* ' . mode_name . ' %* %<%F%=%m%r %18([%{toupper(&ft)}][%l/%L]%)'
 endfunction
 
-hi User1 term=bold cterm=bold ctermfg=235 ctermbg=114
-hi User2 term=bold cterm=bold ctermfg=252 ctermbg=24
+hi User1 term=bold cterm=bold ctermfg=235 ctermbg=150
+hi User2 term=bold cterm=bold ctermfg=235 ctermbg=110
 hi User3 term=bold cterm=bold ctermfg=235 ctermbg=216
 hi User4 term=bold cterm=bold ctermfg=252 ctermbg=97
-hi StatusLine term=NONE cterm=NONE ctermfg=253 ctermbg=237
+hi StatusLine term=NONE cterm=NONE ctermfg=253 ctermbg=237 gui=NONE guifg=#cdd1e6 guibg=#2a3158
 
 set statusline=%!SetStatusLine()
 
