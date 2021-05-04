@@ -36,7 +36,7 @@ ls_abbrev() {
         echo "$ls_result" | head -n 5
         echo '...'
         echo "$ls_result" | tail -n 5
-        echo "$(command ls -1 -A | wc -l | tr -d ' ') files exist"
+        echo "$(command ls -1 -A | wc -l | tr -d ' ') files exist in \e[34;1m`pwd`\e[m"
     else
         echo "$ls_result"
     fi
