@@ -47,6 +47,7 @@ hr() {
 }
 
 do_enter() {
+    FIRST_CD=false
     if [ -n "$BUFFER" ]; then
         zle accept-line
         return 0
@@ -55,6 +56,7 @@ do_enter() {
     echo -e "\e[;1m--- ls `repeat $(($(tput cols) - 7)) printf -`\e[m"
     ls_abbrev
     echo -e "\e[;1m`repeat $(tput cols) printf -`\e[m"
+    echo
     zle reset-prompt
     return 0
 }
@@ -63,15 +65,13 @@ bindkey '^m' do_enter
 
 # At cd
 chpwd() {
-    hr
-    echo -e "\e[;1m -> `pwd`\e[m"
-    hr
+    FIRST_CD=true
 }
 
 #PROMPTが呼ばれる前に実行される
 precmd () {}
 # git ブランチ名を色付きで表示させるメソッド
-function prompt-git {
+function prompt_git {
   local branch_name st branch_status
 
   if [ ! -e  ".git" ]; then
@@ -101,7 +101,7 @@ function prompt-git {
   branch_status="%F{blue}"
   fi
   # ブランチ名を色付きで表示する
-  echo "${branch_status}($branch_name)"
+  echo "${branch_status}$branch_name%f"
 }
 
 # function delete_rprompt() {
@@ -118,10 +118,28 @@ function prompt-git {
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 
+prompt_pwd() {
+    if [[ $FIRST_CD == true ]]; then
+        echo "%F{blue}`pwd`%f"
+    else
+        echo "%F{blue}%(5~,%-2~/.../%2~,%~)%f"
+    fi
+}
+
+prompt_kao() {
+    local ok='(^_^)'
+    local ng='(=_=;'
+    local color face reset
+    color="%{%(?.%B%F{green}.%B%F{red})%}"
+    face="%(?.$ok.$ng)%(!.!.)"
+    reset="%{%f%b%}"
+    echo "$color$face$reset"
+}
 
 # プロンプトにメソッドの結果を表示させる
-PROMPT='%B%f%F{blue}%(5~,%-2~/.../%2~,%~)%b%F{white}%B`prompt-git`%b%f%F{yellow} > %f'
-RPROMPT="%F{white}[%B%(!.%F{red}.%F{green})%n%f@%m%b]%f"
+PROMPT='%B-> `exec prompt_pwd` `prompt_git`
+`prompt_kao` %F{yellow}> %f'
+RPROMPT=""
 
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
