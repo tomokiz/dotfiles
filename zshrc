@@ -68,6 +68,44 @@ function prompt-git {
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 
+function do_enter() {
+    if [ -n "$BUFFER" ]; then
+        zle accept-line
+        return 0
+    fi
+    echo
+    echo "--- ls `repeat $(($(tput cols) - 7)) printf -`"
+    ls_abbrev
+    echo `repeat $(tput cols) printf -`
+    zle reset-prompt
+    return 0
+}
+zle -N do_enter
+bindkey '^m' do_enter
+
+ls_abbrev() {
+    if [[ ! -r $PWD ]]; then
+        return
+    fi
+    local cmd_ls='ls'
+    local -a opt_ls
+    opt_ls=('-CF' '--color=always')
+
+    local ls_result
+    ls_result=$(CLICOLOR_FORCE=1 COLUMNS=$COLUMNS command $cmd_ls ${opt_ls[@]} | sed $'/^\e\[[0-9;]*m$/d')
+
+    local ls_lines=$(echo "$ls_result" | wc -l | tr -d ' ')
+
+    if [ $ls_lines -gt 10 ]; then
+        echo "$ls_result" | head -n 5
+        echo '...'
+        echo "$ls_result" | tail -n 5
+        echo "$(command ls -1 -A | wc -l | tr -d ' ') files exist"
+    else
+        echo "$ls_result"
+    fi
+}
+
 # プロンプトにメソッドの結果を表示させる
 PROMPT='%B%f%F{blue}%(5~,%-2~/.../%2~,%~)%b%F{white}%B`prompt-git`%b%f%F{yellow} > %f'
 RPROMPT="%F{white}[%B%(!.%F{red}.%F{green})%n%f@%m%b]%f"
