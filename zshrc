@@ -74,9 +74,9 @@ function do_enter() {
         return 0
     fi
     echo
-    echo "--- ls `repeat $(($(tput cols) - 7)) printf -`"
+    echo -e "\e[;1m--- ls `repeat $(($(tput cols) - 7)) printf -`\e[m"
     ls_abbrev
-    echo `repeat $(tput cols) printf -`
+    echo -e "\e[;1m`repeat $(tput cols) printf -`\e[m"
     zle reset-prompt
     return 0
 }
