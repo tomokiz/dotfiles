@@ -43,8 +43,8 @@ ls_abbrev() {
 }
 
 do_enter() {
-    FIRST_CD=false
     if [ -n "$BUFFER" ]; then
+        FIRST_CD=false
         zle accept-line
         return 0
     fi
