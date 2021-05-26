@@ -42,10 +42,6 @@ ls_abbrev() {
     fi
 }
 
-hr() {
-    echo `repeat $(tput cols) printf -`
-}
-
 do_enter() {
     FIRST_CD=false
     if [ -n "$BUFFER" ]; then
@@ -53,9 +49,6 @@ do_enter() {
         return 0
     fi
     echo
-    echo -e "\e[;1m--- ls `repeat $(($(tput cols) - 7)) printf -`\e[m"
-    ls_abbrev
-    echo -e "\e[;1m`repeat $(tput cols) printf -`\e[m"
     echo
     zle reset-prompt
     return 0
@@ -101,7 +94,7 @@ function prompt_git {
   branch_status="%F{blue}"
   fi
   # ブランチ名を色付きで表示する
-  echo " ${branch_status}[$branch_name]%f"
+  echo " [${branch_status}$branch_name%f]"
 }
 
 # function delete_rprompt() {
@@ -137,8 +130,8 @@ prompt_kao() {
 }
 
 # プロンプトにメソッドの結果を表示させる
-PROMPT='%B┌─ `exec prompt_pwd``prompt_git`
-└─ `prompt_kao` %F{yellow}> %f'
+PROMPT='%B[`exec prompt_pwd`]`prompt_git`
+`prompt_kao` %F{white}%(!.#.$) %f%b'
 RPROMPT=""
 
 autoload history-search-end
