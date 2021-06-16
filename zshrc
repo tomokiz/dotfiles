@@ -67,7 +67,7 @@ precmd () {}
 function prompt_git {
   local branch_name st branch_status
 
-  if [ ! -e  ".git" ]; then
+  if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   # git 管理されていないディレクトリは何も返さない
   return
   fi
