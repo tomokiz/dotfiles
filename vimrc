@@ -228,6 +228,9 @@ let g:translate_target = "ja"
 nmap gr <Plug>(Translate)
 vmap t <Plug>(VTranslate)
 
+" black settings
+let g:black_virtualenv = '~/.cache/black_venv'
+
 " local settings
 if glob("~/.vimrc.local") != ''
     source ~/.vimrc.local
